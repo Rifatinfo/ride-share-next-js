@@ -1,4 +1,3 @@
-
 export default function CommonLayout({
   children,
 }: Readonly<{
