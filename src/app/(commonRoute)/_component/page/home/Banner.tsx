@@ -1,5 +1,5 @@
 
-import { Card, CardContent } from "@/src/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import BannerButton from "./BannerButton";
 import MotionCar from "./MotionCar";
 
