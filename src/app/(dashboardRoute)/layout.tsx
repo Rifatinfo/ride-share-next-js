@@ -13,15 +13,15 @@ export default function DashboardLayout({
   driver: React.ReactNode;
   user: React.ReactNode;
 }>) {
-  const sidebarItems = sidebarMenus["user"];
-  const ActiveComponent = roleComponentMap["user"]?.({
+  const sidebarItems = sidebarMenus["admin"];
+  const ActiveComponent = roleComponentMap["admin"]?.({
     user,
     admin,
     driver
   })
   return (
   <div className="flex min-h-screen bg-gray-50">
-    <Sidebar role="user" items={sidebarItems} />
+    <Sidebar role="admin" items={sidebarItems} />
 
     <main className="flex-1 p-6">
       <div className="mt-6">
