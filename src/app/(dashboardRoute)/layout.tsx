@@ -3,6 +3,7 @@ import React from "react";
 import { sidebarMenus } from "./_dashboardComponents/config/sidebarMene";
 import { roleComponentMap } from "./_dashboardComponents/config/roleMap";
 import Sidebar from "./_dashboardComponents/components/Sidebar";
+import Providers from "./_dashboardComponents/config/providers";
 
 export default function DashboardLayout({
   user,
@@ -25,7 +26,7 @@ export default function DashboardLayout({
 
     <main className="flex-1 p-6">
       <div className="mt-6">
-        {ActiveComponent}
+        <Providers>{ActiveComponent}</Providers>
       </div>
     </main>
   </div>

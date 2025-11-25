@@ -8,5 +8,6 @@ export const sidebarMenus = {
     ], 
     admin : [
         {label : "admin home", href : "/admin-dashboard"},
+        {label : "Cars", href : "/admin-dashboard/cars"},
     ], 
 } as const;
