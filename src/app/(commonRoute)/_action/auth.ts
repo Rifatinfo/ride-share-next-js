@@ -2,8 +2,12 @@
 "use server";
 
 import { cookies } from "next/headers";
-
-export async function loginAction(preState: any, fromData: any) {
+interface LoginResponse {
+  success: boolean;
+  message?: string;
+  user?: any;
+}
+export async function loginAction(preState: any, fromData: any) : Promise<LoginResponse> {
 
   try {
     const email = fromData.get("email");
@@ -61,6 +65,6 @@ export async function loginAction(preState: any, fromData: any) {
       message : "Logged in successfully"
     }
   } catch (error) {
-     return error
+      return { success: false, message: "An unexpected error occurred" };
   }
 }

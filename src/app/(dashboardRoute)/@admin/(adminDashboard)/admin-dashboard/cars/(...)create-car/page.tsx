@@ -18,6 +18,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import api from "@/lib/axios";
+import { mutate } from "swr";
 
 export default function CreateCarModal() {
   const router = useRouter();
@@ -29,8 +31,24 @@ export default function CreateCarModal() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
-    setLoading(false);
-    router.back(); // Close modal
+    const updatedData = {
+      ...data,
+      rating: parseInt(data.rating as string),
+      passengerCapacity: parseInt(data.passengerCapacity as string),
+    };
+    
+    try {
+      await api.post("/cars", updatedData);
+      setLoading(false);
+
+      mutate("/cars");
+      
+      router.back();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
   const brands = [
     { label: "Bmw", value: "Bmw" },
